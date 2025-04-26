@@ -2,10 +2,12 @@ import express from "express";
 import pool from "./db";
 
 import authRoutes from "./routes/auth";
+import walletRoutes from "./routes/wallets";
 
 const app = express();
 app.use(express.json());
 app.use("/api", authRoutes);
+app.use("/api", walletRoutes);
 
 app.get("/", (_, res) => {
 	res.send("API Running");
